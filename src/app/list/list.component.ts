@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   public region_2 = '';
   public page = this.curr_page;
   public total_pages;
+  public sort_order = 'ASC';
   constructor(private wineService: WineService) {
 
   }
@@ -37,6 +38,11 @@ export class ListComponent implements OnInit {
     else if(to=='prev'){
       this.page=Math.max(1, this.curr_page-1);
       this.curr_page = this.page;
+    }
+
+    if(to == 'sort'){
+      this.sort_order = this.sort_order == 'ASC' ? 'DESC' : 'ASC';
+      params['sort_order'] = this.sort_order;
     }
 
     console.log(this.page);

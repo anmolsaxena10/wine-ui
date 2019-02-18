@@ -44,11 +44,11 @@
                 <th scope="col">Country</th>
                 <th scope="col">Designation</th>
                 <th scope="col">Points</th>
-                <th scope="col">Price</th>
-                <!-- <th scope="col">Province</th>
+                <th scope="col"><a (click)="getPage('sort')">Price</a></th>
+                <th scope="col">Province</th>
                 <th scope="col">Region_1</th>
                 <th scope="col">Region_2</th>
-                <th scope="col">Variety</th>
+                <!-- <th scope="col">Variety</th>
                 <th scope="col">Winery</th> -->
             </tr>
         </thead>
@@ -59,10 +59,10 @@
                 <td>{{wine.designation}}</td>
                 <td>{{wine.points}}</td>
                 <td>{{wine.price}}</td>
-                <!-- <td>{{wine.province}}</td>
+                <td>{{wine.province}}</td>
                 <td>{{wine.region_1}}</td>
                 <td>{{wine.region_2}}</td>
-                <td>{{wine.variety}}</td>
+                <!-- <td>{{wine.variety}}</td>
                 <td>{{wine.winery}}</td> -->
             </tr>
         </tbody>
