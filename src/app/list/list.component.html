@@ -1,1 +1,77 @@
-<div *ngFor>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        Wine Listing
+    </a>
+</nav>
+<div class="container" style="padding-top: 10px;">
+    <div class="row">
+        <div class="input-group mb-3 col-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">Country</span>
+            </div>
+            <input type="text" name="country" id="country" (input)="getPage($event)" [(ngModel)]="country" class="form-control"
+                aria-describedby="basic-addon3">
+        </div>
+
+        <div class="input-group mb-3 col-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon4">Province</span>
+            </div>
+            <input type="text" name="province" id="province" (input)="getPage($event)" [(ngModel)]="province" class="form-control"
+                aria-describedby="basic-addon4">
+        </div>
+
+        <div class="input-group mb-3 col-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon5">Region 1</span>
+            </div>
+            <input type="text" name="region_1" id="region_1" (input)="getPage($event)" [(ngModel)]="region_1" class="form-control"
+                aria-describedby="basic-addon5">
+        </div>
+
+        <div class="input-group mb-3 col-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon6">Region 2</span>
+            </div>
+            <input type="text" name="region_2" id="region_2" (input)="getPage($event)" [(ngModel)]="region_2" class="form-control"
+                aria-describedby="basic-addon6">
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Country</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Points</th>
+                <th scope="col">Price</th>
+                <!-- <th scope="col">Province</th>
+                <th scope="col">Region_1</th>
+                <th scope="col">Region_2</th>
+                <th scope="col">Variety</th>
+                <th scope="col">Winery</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let wine of wineList; let i=index">
+                <th scope="row">{{(i+1)+((curr_page-1)*10)}}</th>
+                <td>{{wine.country}}</td>
+                <td>{{wine.designation}}</td>
+                <td>{{wine.points}}</td>
+                <td>{{wine.price}}</td>
+                <!-- <td>{{wine.province}}</td>
+                <td>{{wine.region_1}}</td>
+                <td>{{wine.region_2}}</td>
+                <td>{{wine.variety}}</td>
+                <td>{{wine.winery}}</td> -->
+            </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#" (click)="getPage('prev')">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">{{curr_page}}</a></li>
+            <li class="page-item"><a class="page-link" href="#" (click)="getPage('next')">Next</a></li>
+        </ul>
+    </nav>
+</div>
